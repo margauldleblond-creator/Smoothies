@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import pandas as pd
 # from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col, when_matched
 
@@ -27,7 +28,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 #st.stop()
 
 pd_df =  my_dataframe.to_pandas()
-st.dataframe(data=my_dataframe, use_container_width=True)
+st.dataframe(pd_df)
 st.stop()
 
 ingredient_liste = st.multiselect(
