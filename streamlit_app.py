@@ -37,8 +37,6 @@ ingredient_liste = st.multiselect(
     max_selections=6
 )
 
-#st.write("You selected:", options)
-
 if ingredient_liste :
    # st.write("You selected:", ingredient_liste)
     ingredients_string = ''
@@ -48,7 +46,7 @@ if ingredient_liste :
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
         
         st.subheader(fruit_chosen + ' Nutrition Information')
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + search_on)
         sf_df = st.dataframe(data=smoothiefroot_response.json(),use_container_width=True)
     #st.write(ingredients_string)
 
